@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: buildartifact.tar
+  - source: .
     destination: /home/ec2-user/
 hooks:
   AfterInstall:

@@ -3,3 +3,8 @@ os: linux
 files:
   - source: dist/angular7/index.html
     destination: /home/ec2-user/
+hooks:
+  BeforeInstall:
+    - location: script/setup.sh
+      timeout: 3800
+      runas: root

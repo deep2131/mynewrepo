@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: dist/angular7/index.html
+  - source: buildartifact.tar
     destination: /home/ec2-user/
 hooks:
   BeforeInstall:

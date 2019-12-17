@@ -1,5 +1,5 @@
 version: 0.0
 os: linux
 files:
-  - source: /index.html
+  - source: dist/angular7/index.html
     destination: /home/ec2-user/

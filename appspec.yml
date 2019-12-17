@@ -1,5 +1,5 @@
 version: 0.0
 os: linux
 files:
-  - source: tar -xvf buildartifact.tar/dist/angular7/index.html
+  - source: dist/angular7/index.html
     destination: /home/ec2-user/

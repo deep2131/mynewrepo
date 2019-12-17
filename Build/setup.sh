@@ -1,7 +1,6 @@
 
 #!/bin/bash
-cd /home/ec2-user
 
-tar xvf buildartifact.tar .
+tar xvf buildartifact.tar /home/ec2-user
 
 

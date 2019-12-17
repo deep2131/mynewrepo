@@ -9,4 +9,4 @@ workflows:
           deployment-group: SimpleDemoDG
           service-role-arn: arn:aws:iam::801391952744:role/CodeDeployDemo-EC2-Instance-Profile
           bundle-bucket: angular-bucket-17
-          bundle-key: artifact
+          bundle-key: dist

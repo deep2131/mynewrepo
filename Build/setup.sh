@@ -1,3 +1,6 @@
+
 #!/bin/bash
 
-sudo tar xvf buildartifact.tar
+sudo tar xvf buildartifact.tar .
+
+

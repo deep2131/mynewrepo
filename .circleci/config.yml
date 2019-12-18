@@ -12,4 +12,4 @@ workflows:
           bundle-bucket: angular-bucket-17
           bundle-source: Build/
           bundle-key: rbk
-          arguments: '--profile assume_role'
+          arguments: '--profile CodeDeployDemo-EC2-Instance-Profile-1'

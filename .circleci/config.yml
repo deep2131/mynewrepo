@@ -12,4 +12,4 @@ workflows:
           bundle-bucket: angular-bucket-17
           bundle-source: Build/
           bundle-key: rbk
-          arguments: '--profile CodeDeployDemo-EC2-Instance-Profile-1'
+          arguments: '--profile arn:aws:iam::801391952744:role/CodeDeployDemo-EC2-Instance-Profile-1'

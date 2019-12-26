@@ -1,9 +1,9 @@
 #version: 2.1
 #orbs:
- # aws-code-deploy: circleci/aws-code-deploy@0.0.10
+  #aws-code-deploy: circleci/aws-code-deploy@0.0.10
 #workflows:
-#  deploy_application:
-#    jobs:
+ # deploy_application:
+ #   jobs:
   #    - aws-code-deploy/deploy:
    #       application-name: Redwood
     #      deployment-group: RedwoodDeploy && goodworks
@@ -14,36 +14,35 @@
        #   bundle-source: Build/
        #   bundle-key: rbk
 
-version: 2.1
-orbs:
+--- 
+orbs: 
   aws-code-deploy: circleci/aws-code-deploy@1.0.0
-jobs:
-    dev-job:
-      - aws-code-deploy/deploy:
+  jobs: 
+    dev-job: 
+      - aws-code-deploy/deploy: 
           application-name: demoapp-dev
-          deployment-group: SimpleDemoDG
-          service-role-arn: arn:aws:iam::801391952744:role/CodeDeployServiceRole
           bundle-bucket: angular-bucket-17
-          bundle-source: Build/
           bundle-key: dev1
-    qa-job:
-      - aws-code-deploy/deploy:
-          application-name: demoapp-qa
-          deployment-group: 
-          service-role-arn: arn:aws:iam::801391952744:role/CodeDeployServiceRole
-          bundle-bucket: myApplicationS3Bucket
           bundle-source: Build/
+          deployment-group: SimpleDemoDG
+          service-role-arn: "arn:aws:iam::801391952744:role/CodeDeployServiceRole"
+    qa-job: 
+      - aws-code-deploy/deploy: 
+          application-name: demoapp-qa
+          bundle-bucket: myApplicationS3Bucket
           bundle-key: qa1
-      
-workflows:
-  deploy_application_dev:
-    jobs:
-        - dev-job
-            filters:
-                branches:
-                    only: master
-        - qa-job
-            filters:
-                branches:
-                    only: build-issues 
-  
+          bundle-source: Build/
+          deployment-group: ~
+          service-role-arn: "arn:aws:iam::801391952744:role/CodeDeployServiceRole"
+version: 2.1
+workflows: 
+  deploy_application_dev: 
+    jobs: 
+      - dev-job: 
+          filters: 
+            branches: 
+              only: master
+      - qa-job: 
+          filters: 
+            branches: 
+              only: build-issues

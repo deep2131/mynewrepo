@@ -17,6 +17,8 @@
 --- 
 orbs: 
   aws-code-deploy: circleci/aws-code-deploy@0.0.10
+workflows:
+ deploy_application:
   jobs: 
     - aws-code-deploy/deploy: 
         application-name: demoapp-dev
@@ -37,11 +39,11 @@ orbs:
 workflows: 
   deploy_application: 
   jobs: 
-    - aws-code-deploy/Devdeploy:  
+    - aws-code-deploy/deploy:  
         filters: 
           branches: 
               only: master
-    - aws-code-deploy/QAdeploy: 
+    - aws-code-deploy/deploy: 
         filters: 
           branches: 
               only: build-issues

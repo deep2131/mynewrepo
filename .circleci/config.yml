@@ -18,16 +18,15 @@
 orbs: 
   aws-code-deploy: circleci/aws-code-deploy@0.0.10
   jobs: 
-    dev-job: 
-      - aws-code-deploy/deploy: 
+      - aws-code-deploy/Devdeploy: 
           application-name: demoapp-dev
           bundle-bucket: angular-bucket-17
           bundle-key: dev1
           bundle-source: Build/
           deployment-group: SimpleDemoDG
           service-role-arn: "arn:aws:iam::801391952744:role/CodeDeployServiceRole"
-    qa-job: 
-      - aws-code-deploy/deploy: 
+  
+      - aws-code-deploy/QAdeploy: 
           application-name: demoapp-qa
           bundle-bucket: myApplicationS3Bucket
           bundle-key: qa1
@@ -38,11 +37,11 @@ version: 2.1
 workflows: 
   deploy_application_dev: 
     jobs: 
-      - dev-job: 
+      - aws-code-deploy/Devdeploy:  
           filters: 
             branches: 
               only: master
-      - qa-job: 
+      - aws-code-deploy/QAdeploy: 
           filters: 
             branches: 
               only: build-issues

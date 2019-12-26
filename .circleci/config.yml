@@ -16,7 +16,7 @@
 
 --- 
 orbs: 
-  aws-code-deploy: circleci/aws-code-deploy@1.0.0
+  aws-code-deploy: circleci/aws-code-deploy@0.0.10
   jobs: 
     dev-job: 
       - aws-code-deploy/deploy: 
